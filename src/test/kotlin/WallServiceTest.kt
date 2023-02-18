@@ -9,7 +9,7 @@ class WallServiceTest {
         val service = WallService
 
         val note = service.add(
-            Note("1", "note 1", "string 1",Comment(1, "just comment"))
+            Note("1", "note 1", "string 1")
         )
     }
 
@@ -18,24 +18,28 @@ class WallServiceTest {
         val service = WallService
 
         service.add(
-            Note("2", "note 2", "string 2",Comment(2, "just comment"))
+            Note("2", "note 2", "string 2")
         )
 
         service.add(
-            Note("3", "note 3", "string 3",Comment(3, "just comment"))
+            Note("3", "note 3", "string 3")
         )
 
         service.add(
-            Note("4", "note 3", "string 3",Comment(4, "just comment"))
+            Note("4", "note 3", "string 3")
         )
 
-        service.add(
-            Note("5", "note 3", "string 3",Comment(5, "just comment"))
+        val res = service.add(
+            Note("5", "note 3", "string 3")
         )
 
-        service.createComment("1", "some comment 1")
+        println(res)
+
         service.createComment("2", "some comment 2")
         service.createComment("3", "some comment 3")
+        service.createComment("4", "some comment 4")
+        service.createComment("5", "some comment 5")
+        service.createComment("5", "some comment 5")
     }
 
     @Test
@@ -48,7 +52,7 @@ class WallServiceTest {
     @Test
     fun deleteCom() {
         val service = WallService
-        println(service.deleteComment(2))
+        println(service.deleteComment(4))
     }
 
     @Test
@@ -60,7 +64,7 @@ class WallServiceTest {
     @Test
     fun editCommentTest() {
         val service = WallService
-        service.editComment(2, "This comment was changed :)")
+        service.editComment(0, "This comment was changed :)")
     }
 
     @Test
@@ -84,7 +88,7 @@ class WallServiceTest {
     @Test
     fun restoreCommentById() {
         val service = WallService
-        service.restoreComment("2")
+        service.restoreComment("4")
     }
 
 }
