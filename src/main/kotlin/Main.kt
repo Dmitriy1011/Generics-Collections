@@ -43,7 +43,7 @@ object WallService {
                 return comments.last().id
             }
         }
-        throw AccessToCommentDenied("Access to note denied")
+        throw AccessToCommentDenied("Access to comment denied")
     }
 
     fun delete(noteId: String): Int {

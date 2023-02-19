@@ -91,4 +91,22 @@ class WallServiceTest {
         service.restoreComment("4")
     }
 
+    @Test(expected = WallService.NoteNotFoundException::class)
+    fun shouldThrow1() {
+        val service = WallService
+        service.delete("10")
+    }
+
+    @Test(expected = WallService.AccessToNoteDenied::class)
+    fun shouldThrow2() {
+        val service = WallService
+        service.getComments("10")
+    }
+
+    @Test(expected = WallService.AccessToCommentDenied::class)
+    fun shouldThrow3() {
+        val service = WallService
+        service.restoreComment("10")
+    }
+
 }
